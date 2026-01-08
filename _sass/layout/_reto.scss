@@ -1,0 +1,35 @@
+@use '../abstracts/breakpoints' as bp;
+.content {
+  /* Estilo para listas tipo “dibujadas” */
+  ul {
+    list-style: none;
+    /* quitamos el marcador por defecto */
+    padding-left: 2rem;
+    margin: .5rem 0;
+  }
+
+  ul li {
+    position: relative;
+    margin-bottom: 0.5rem;
+    /* fuente estilo manuscrita */
+  }
+
+  /* Marcador “hecho a mano” */
+  ul li::before {
+    content: "✦";
+    /* puedes usar •, ✦, ✿ o incluso SVG inline */
+    position: absolute;
+    left: -1.5rem;
+    top: 0;
+    color: #d96f4c;
+    /* color cálido tipo lápiz */
+    font-size: 1.1rem;
+    transform: rotate(-10deg);
+    /* ligeramente inclinado para efecto natural */
+  }
+
+  /* Opcional: efecto de sombra ligera para que parezca dibujado sobre papel */
+  ul li {
+    text-shadow: 0.5px 0.5px rgba(0, 0, 0, 0.1);
+  }
+}

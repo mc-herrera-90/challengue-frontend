@@ -1,0 +1,62 @@
+@use '../abstracts/breakpoints' as bp;
+@use '../abstracts/variables' as v;
+
+// NAV MENU
+#menu {
+
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  /* fondo blanco como hoja */
+  @include bp.xxxl {
+    font-size: 22px;
+
+    svg.icon-reto {
+      width: v.$font-size-base-xxxl;
+      height: v.$font-size-base-xxxl;
+    }
+  }
+
+  .nav-link {
+
+    &:hover {
+      .icon-reto {
+        fill-opacity: 1;
+      }
+
+      .icon-reto * {
+        --icon-js-fill: #f5de19;
+        --icon-react-fill: #0288d1;
+        // fill: none;
+      }
+    }
+
+    // &.active {
+    //   .icon-reto * {
+    //     fill: revert;
+    //   }
+    // }
+
+  }
+}
+
+.icon-reto {
+  fill-opacity: 0;
+  transition: fill-opacity 0.25s ease;
+
+  & * {
+    /* que no tenga relleno */
+  }
+
+  fill: none;
+  /* que no tenga relleno */
+  stroke: black;
+  /* color del trazo */
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  stroke-dashoffset: 0;
+  filter: url(#roughify);
+  /* opcional, si defines un filtro SVG para ruido */
+
+}

@@ -1,0 +1,43 @@
+# ----------------------------
+# Jekyll build / generated files
+# ----------------------------
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# ----------------------------
+# OS / Editor files
+# ----------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# ----------------------------
+# Bundler / Ruby
+# ----------------------------
+.bundle/
+vendor/bundle/
+Gemfile.lock
+
+# ----------------------------
+# Node / Yarn (si usas JS)
+# ----------------------------
+node_modules/
+yarn-error.log
+package-lock.json
+
+# ----------------------------
+# Logs
+# ----------------------------
+*.log
+
+# ----------------------------
+# Misc
+# ----------------------------
+*.zip
+*.tar.gz
+*.rar

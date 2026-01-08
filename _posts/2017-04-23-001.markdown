@@ -1,0 +1,22 @@
+---
+layout: comic
+date:   2017-04-23 11:42:56 -0700
+title: 1
+categories: page
+permalink: /001
+---
+
+Implementa una funcionalidad en JavaScript que permita **copiar texto al portapapeles** usando la **Clipboard API**.
+
+La solución debe cumplir con lo siguiente:
+
+* Mostrar un texto fijo en pantalla.
+* Incluir un botón **“Copiar”**.
+* Al hacer clic en el botón:
+
+  * Copiar el texto usando `navigator.clipboard.writeText`.
+  * Mostrar una confirmación visual de que el texto fue copiado.
+* Manejar errores en caso de que la API no esté disponible.
+* No usar librerías externas ni `execCommand`.
+
+**Nota:** La Clipboard API solo funciona en contextos seguros (HTTPS o `localhost`).

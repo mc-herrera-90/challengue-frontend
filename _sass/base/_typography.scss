@@ -1,0 +1,86 @@
+@use '../abstracts/breakpoints' as bp;
+@use '../abstracts/variables' as v;
+
+@for $i from 1 through 5 {
+  h#{$i} {
+    @if $i == 1 {
+    }
+
+    @if $i > 1 {
+      font-weight: bolder;
+    }
+
+    @if $i < 5 {
+      $size-factor: 0.25rem;
+
+      @if $i > 1 {
+        $size-factor: 0.18rem;
+
+        main & {
+          @if $i == 2 {
+            margin: 2.5rem 0 1.25rem;
+            font-weight: bolder;
+            @include bp.xxxl {
+                font-size: 2rem;
+            }
+          } @else {
+            margin: 2rem 0 1rem;
+          }
+        }
+      }
+      & {
+        font-size: 1rem + (5 - $i) * $size-factor;
+        @include bp.xxl {
+          font-size: 1.3rem + (5 - $i) * $size-factor;
+        }
+      }
+    } @else {
+      font-size: 1.05rem;
+    }
+  }
+}
+
+
+
+.content, footer {
+    font-size: v.$font-size-base;
+    @include bp.xxxl {
+        font-size: v.$font-size-base-xxxl;
+    }
+}
+
+$h2-color: #000;          // color del texto
+$underline-color: #fdd835; // color tipo marcador
+$underline-height: 12px;    // grosor del subrayado
+$underline-gap: 6px;        // separación del texto
+$underline-angle: -2deg;    // ligera inclinación
+
+h2.reto_title {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  margin: 1rem auto;
+  font-weight: bold;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -#{$underline-gap};
+    width: 100%;
+    height: $underline-height;
+    background: linear-gradient(
+      to right,
+      rgba($underline-color, 0.8) 0%,
+      rgba($underline-color, 0.6) 20%,
+      rgba($underline-color, 0.9) 40%,
+      rgba($underline-color, 0.7) 60%,
+      rgba($underline-color, 0.8) 80%,
+      rgba($underline-color, 0.6) 100%
+    );
+    transform: rotate($underline-angle) skewX(-5deg); // inclinación irregular
+    border-radius: 4px;
+    z-index: -1;
+  }
+}
+

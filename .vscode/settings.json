@@ -1,0 +1,12 @@
+{
+  "editor.formatOnSave": true,
+
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+
+  "[markdown]": {
+    "editor.formatOnSave": false
+  }
+}

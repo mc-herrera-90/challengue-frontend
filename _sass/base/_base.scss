@@ -1,0 +1,205 @@
+@use '../abstracts/breakpoints' as bp;
+@use '../abstracts/mixins' as mx;
+@use '../abstracts/variables' as v;
+
+
+body {
+  font-family: v.$font-family-base;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background-color: #fdfcf8; // papel cálido
+  background-image: linear-gradient(rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.6)),
+  url("#{v.$asset-path}/grid.png");
+
+  background-repeat: repeat;
+  background-size: auto;
+  color: #2b2b2b;
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.04);
+
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background-image:
+    repeating-linear-gradient(0deg,
+      rgba(0, 0, 0, 0.015),
+      rgba(0, 0, 0, 0.015) 1px,
+      transparent 1px,
+      transparent 2px);
+
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+
+  @include bp.xxl {
+    left: 72px;
+  }
+
+  width: 2px;
+  background-color: rgba(220, 80, 80, 0.35);
+}
+
+
+.hero {
+  padding: 3rem 3.5rem;
+
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 6px;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.06),
+    inset 0 0 40px rgba(255, 255, 255, 0.6);
+
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.015),
+      rgba(0, 0, 0, 0.015));
+
+  pointer-events: none;
+}
+
+main {
+  position: relative;
+  // border: 2px solid rgba(30, 60, 120, 0.55);
+  // border-radius: 12px;
+  width: 100%;
+  padding: 1.5rem 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 2px;
+    width: 2px;
+    background-color: rgba(220, 80, 80, 0.35);
+  }
+
+  /* Borde dibujado */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -9px;
+
+    border-left: 2px solid rgba(25, 60, 130, 0.6);
+    border-right: 2px solid rgba(40, 40, 40, 0.55);
+
+    filter: blur(0.2px);
+
+    transform: rotate(0.15deg);
+
+    pointer-events: none;
+  }
+
+  @include bp.xxxl {
+    font-size: 18px;
+    max-width: 1100px !important;
+
+    svg.icon-reto {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+
+}
+
+#menu a {
+  position: relative;
+  text-decoration: none;
+  color: #2f2f2f;
+  font-weight: 500;
+}
+
+/* Subrayado tipo lapicera */
+#menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background-color: rgba(180, 30, 30, 0.6);
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+/* Hover */
+#menu a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Activo: marcado a mano */
+#menu a.active::after {
+  transform: scaleX(1);
+  height: 3px;
+  background-color: rgba(180, 30, 30, 0.75);
+  filter: blur(0.3px);
+}
+
+.reto-item {
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+svg.icon-reto {
+  filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.2));
+  transform-box: fill-box;
+}
+
+.reto-item .reto_heading--js {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+
+  background: rgba(255, 235, 59, 0.45);
+  padding: .4rem .7rem;
+
+}
+
+.reto_heading--js {
+  position: relative;
+  color: #000; // color del texto
+  font-weight: 600;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0.1em; // ajusta la posición vertical del trazo
+    width: 100%;
+    height: 0.4em; // grosor del resaltador
+    background: linear-gradient(120deg,
+        rgba(255, 223, 0, 0.4) 0%,
+        rgba(255, 223, 0, 0.6) 20%,
+        rgba(255, 223, 0, 0.3) 50%,
+        rgba(255, 223, 0, 0.5) 80%,
+        rgba(255, 223, 0, 0.4) 100%);
+    pointer-events: none; // no interfiere con el texto
+    z-index: -1; // detrás del texto
+  }
+}

@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+{{ content  }}
+
+{% for d in site[page.collection] %}
+  <div class="reto-item">
+    <div class="reto_heading--{{ page.collection }}">
+      <a href={{ d.url }} class="nav-link"><h3>
+      {{ d.title }}
+      </h3></a>
+    </div>
+    <div class="reto_body">
+      {{ d.description | markdownify | truncate: 150 }}
+    </div>
+  </div>
+{% endfor %}
