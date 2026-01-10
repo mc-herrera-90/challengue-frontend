@@ -1,6 +1,6 @@
-@use '../abstracts/breakpoints' as bp;
-@use '../abstracts/mixins' as mx;
-@use '../abstracts/variables' as v;
+@use "../abstracts/breakpoints" as bp;
+@use "../abstracts/mixins" as mx;
+@use "../abstracts/variables" as v;
 
 div.highlighter-rouge {
   position: relative;
@@ -9,27 +9,23 @@ div.highlighter-rouge {
   background: #fffef8;
   padding: 1.7rem 1.8rem 0.5rem 1.8rem;
   line-height: 1.6rem;
-  background-image:
-    linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.028) 1px,
-      transparent 1px);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.028) 1px,
+    transparent 1px
+  );
   background-size: 100% 1.6em;
-
   border-radius: 2px;
 
-  /* PAPEL PEGADO (no flotando) */
   box-shadow:
-    /* presión interna */
-    inset 0 1px 0 rgba(0, 0, 0, 0.08),
+    /* presión interna */ inset 0 1px 0 rgba(0, 0, 0, 0.08),
     inset 0 -1px 2px rgba(0, 0, 0, 0.14),
-
-    /* contacto seco con el fondo */
-    0 1px 0 rgba(0, 0, 0, 0.12);
+    /* contacto seco con el fondo */ 0 1px 0 rgba(0, 0, 0, 0.12);
 
   transform: rotate(-0.25deg);
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -10px;
     right: 46px;
@@ -63,19 +59,18 @@ div.highlighter-rouge {
 
   &::before,
   &::after {
-    background-image:
-      repeating-linear-gradient(90deg,
-        rgba(0, 0, 0, 0.08) 0px,
-        rgba(0, 0, 0, 0.08) 1px,
-        transparent 1px,
-        transparent 4px);
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.08) 0px,
+      rgba(0, 0, 0, 0.08) 1px,
+      transparent 1px,
+      transparent 4px
+    );
     /* SOMBRA DE CONTACTO (PEGADO) */
-    box-shadow:
-      0 1px 0 rgba(0, 0, 0, 0.25),
-      0 2px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), 0 2px 0 rgba(0, 0, 0, 0.12);
   }
 
-  .highlight>code {
+  &:not(.language-md) > .highlight > code {
     font-family: v.$font-family-code;
     font-weight: 700;
 
@@ -91,41 +86,70 @@ div.highlighter-rouge {
   }
 }
 
-
-div[class^='language-'] {
+div[class^="language-"] {
   white-space: pre-wrap;
-
 
   .code-header {
     $dot-margin: 1rem;
 
     &::before {
-      content: '';
+      content: "";
       display: inline-block;
       margin-left: $dot-margin;
       width: v.$code-dot-size;
       height: v.$code-dot-size;
       border-radius: 50%;
 
-      background: radial-gradient(circle at 30% 30%,
-          #f5f1ea 0%,
-          #e0dbd2 45%,
-          #bfb8ad 70%,
-          #a9a397 100%);
+      background: radial-gradient(
+        circle at 30% 30%,
+        #f5f1ea 0%,
+        #e0dbd2 45%,
+        #bfb8ad 70%,
+        #a9a397 100%
+      );
 
       box-shadow:
-        /* sombra interna del agujero */
-        inset 1px 1px 2px rgba(0, 0, 0, 0.35),
+        /* sombra interna del agujero */ inset 1px 1px 2px
+          rgba(0, 0, 0, 0.35),
         inset -1px -1px 1px rgba(255, 255, 255, 0.6),
-
-        /* segundo agujero */
-        (v.$code-dot-size + v.$code-dot-gap) 0 0 #d6d1c7,
+        /* segundo agujero */ (v.$code-dot-size + v.$code-dot-gap) 0 0 #d6d1c7,
         (v.$code-dot-size + v.$code-dot-gap) 0 0 inset,
-
-        /* tercer agujero */
-        (v.$code-dot-size + v.$code-dot-gap) * 2 0 0 #d6d1c7;
+        /* tercer agujero */ (v.$code-dot-size + v.$code-dot-gap) * 2 0 0
+          #d6d1c7;
 
       filter: contrast(1.05);
+    }
+  }
+}
+
+// MARKDOWN LANG
+div.language-md {
+  $h2: 1.5rem;
+
+  * {
+    font-weight: normal !important;
+    font-family: v.$font-family-base !important;
+  }
+  code {
+    color: #1d4ed8;
+    font-weight: bolder;
+  }
+  span.gu {
+    color: #9f1239;
+    display: inline-block;
+    margin: 15px 0;
+    font-size: $h2;
+  }
+
+  span.gs {
+    color: #d54770;
+  }
+
+  @include bp.xxxl {
+    font-family: v.$font-size-base-xxxl;
+    line-height: v.$font-size-base-xxxl * 1.25;
+    span.gu {
+      font-size: $h2 * 1.4;
     }
   }
 }
@@ -154,8 +178,8 @@ div[class^='language-'] {
 }
 
 /* INLINE CODE – estilo lapicera */
-:not(pre)>code.highlighter-rouge {
-  font-family: 'Patrick Hand', cursive;
+:not(pre) > code.highlighter-rouge {
+  font-family: "Patrick Hand", cursive;
   font-size: 0.95em;
 
   color: #b03a2e;
@@ -169,8 +193,8 @@ div[class^='language-'] {
 }
 
 /* subrayado irregular tipo lapicera */
-:not(pre)>code.highlighter-rouge::after {
-  content: '';
+:not(pre) > code.highlighter-rouge::after {
+  content: "";
   position: absolute;
   left: 0;
   right: 0;

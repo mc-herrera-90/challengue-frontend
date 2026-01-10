@@ -2,9 +2,7 @@
 
 {% assign _content = include.content %}
 
-
-{% if _content contains '
-<pre class="highlight">' %}
+{% if _content contains '<pre class="highlight">' %}
   {% assign _content = _content
     | replace: '<div class="highlight"><pre class="highlight"><code', '<div class="highlight"><code'
     | replace: '</code></pre>

@@ -12,8 +12,8 @@
     font-size: 22px;
 
     svg.icon-reto {
-      width: v.$font-size-base-xxxl;
-      height: v.$font-size-base-xxxl;
+      width: v.$icon-menu-size-xxxl;
+      height: v.$icon-menu-size-xxxl;
     }
   }
 
@@ -30,23 +30,12 @@
         // fill: none;
       }
     }
-
-    // &.active {
-    //   .icon-reto * {
-    //     fill: revert;
-    //   }
-    // }
-
   }
 }
 
 .icon-reto {
   fill-opacity: 0;
   transition: fill-opacity 0.25s ease;
-
-  & * {
-    /* que no tenga relleno */
-  }
 
   fill: none;
   /* que no tenga relleno */

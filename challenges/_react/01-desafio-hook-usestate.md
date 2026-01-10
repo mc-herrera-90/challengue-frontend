@@ -7,6 +7,7 @@ difficulty: fácil
 ## 🎯 Objetivo
 Crear un componente en React que utilice el hook `useState` para manejar el estado interno del componente.
 
+{% capture md_content %}
 ## 📌 Enunciado
 Implementa un componente llamado **`DesafioHookUseState`** que cumpla con los siguientes requisitos:
 
@@ -20,6 +21,14 @@ Implementa un componente llamado **`DesafioHookUseState`** que cumpla con los si
 - Debes usar el hook `useState`
 - No se permite el uso de componentes de clase
 - El componente debe ser funcional
+{% endcapture %}
+
+<div class="highlighter-rouge">
+<div class="highlight"><code>
+{{ md_content | markdownify }}
+</code>
+</div>
+</div>
 
 ## ✅ Resultado esperado
 Al interactuar con los botones, el valor mostrado debe cambiar dinámicamente sin recargar la página.

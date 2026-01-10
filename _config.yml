@@ -1,18 +1,10 @@
 # En un template se accede vía {{ site.myvariable }} a cualquier valor definido aquí.
 title: Desafíos Frontend
 tab_title: Desafíos Frontend #This text shows up on the browser tab
-email:
 description: Desafíos de JavaScript, React y más
-# url: "https://peahatlanding.github.io/Plain-Webcomic/" # the base hostname & protocol for your site
 
-#twitter_username: http://twitter.com/peahat
-#tumblr_username: http://peahat.tumblr.com
-#patreon_username: peahat
-
-# Author Social Media
-author_twitter_username:
-author_tumblr_username:
-author_patreon_username:
+baseurl: "/challengue-frontend" # si NO es usuario.github.io
+url: "https://mc-herrera-90.github.io"
 
 # Almacenar las colecciones en un solo directorio
 collections_dir: challenges
